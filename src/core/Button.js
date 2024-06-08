@@ -9,7 +9,7 @@ class Button extends HTMLElement {
   connectedCallback() {
     const prefix = this.getAttribute("prefix");
     const suffix = this.getAttribute("suffix");
-    const variant = this.getAttribute("variant");
+    const color = this.getAttribute("color");
 
     this.shadowRoot.innerHTML = `
     <style>${css}</style>
@@ -20,7 +20,7 @@ class Button extends HTMLElement {
     </button>
     `;
 
-    variant && this.shadowRoot.querySelector(".button").classList.add(`variant-${variant}`);
+    color && this.shadowRoot.querySelector(".button").classList.add(`color-${color}`);
   }
 }
 
@@ -29,23 +29,28 @@ const css = `
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 8px 16px;
+        padding: 8px 8px;
         gap: 4px;
-        background-color: #166df7;
-        border-radius: 4px;
+        background-color: #1EB2CC;
         color: #ffffff;
         border: none;
+        border-radius: 4px;
         outline: none;
         cursor: pointer;
     }
 
-    .variant-primary {
-        background-color: #166df7;
+    .color-primary {
+        background-color: #1EB2CC;
         color: #ffffff;
     }
 
-    .variant-secondary {
-        background-color: #dd050c;
+    .color-secondary {
+        background-color: #E7B432;
+        color: #ffffff;
+    }
+
+    .color-error {
+        background-color: #D9123D;
         color: #ffffff;
     }
 
